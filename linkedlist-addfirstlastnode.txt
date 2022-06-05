@@ -1,0 +1,70 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class ll{
+    Node head;
+    
+    public  static class Node{
+        String data;
+        Node next;
+        Node(String d)
+        {
+            this.data=d;
+            this.next=null;
+        }
+    }
+    
+    public void getlist(){
+        
+        Node n=head;
+        while(n!=null){
+            System.out.println(n.data+" ");
+            n=n.next;
+        }
+    }
+    public void addFirstNode(String data){
+        Node newnode=new Node(data);
+        if(head==null){
+            head=newnode;
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+    }
+    public void addLastNode(String data){
+        Node newnode=new Node(data);
+        if(head==null){
+            head=newnode;
+            return;
+        }
+        Node currentnode=head;
+        while(currentnode.next!=null)
+        {
+            currentnode=currentnode.next;
+        }
+        currentnode.next=newnode;
+    }
+    public void printList()
+    {
+        if(head==null){
+            System.out.print("list is empty");
+            return;
+        }
+        Node currentnode=head;
+        while(currentnode!=null){
+            System.out.print(currentnode.data+"-->");
+            currentnode=currentnode.next;
+        }
+        System.out.println("NULL");
+    }
+    
+    public static void main(String[] args){
+    /* methods to create single linked List*/
+    ll l1=new ll();
+    l1.addFirstNode("Hi");
+    l1.addFirstNode("is");
+    l1.printList();
+    l1.addLastNode("Ashish");
+    l1.printList();
+}
+}
